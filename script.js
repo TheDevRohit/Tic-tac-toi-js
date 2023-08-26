@@ -54,8 +54,8 @@ const checkWin = () => {
         //   winOrOver.style.display="flex";
           winOrOver.innerHTML = boxText[e[0]].innerText +" is Won the Macth";    
           alertText.innerHTML = boxText[e[0]].innerText +" is Won the Macth";    
-          alertImage.style.display="block"
-          alertImage2.style.display="none"
+        //   alertImage.style.display="block"
+        //   alertImage2.style.display="none"
           resetGame()
           alertBox.style.display="flex" 
         }
@@ -95,11 +95,11 @@ cancelGame.addEventListener("click" ,()=>{
 function drawMacth(){
     if(count>=9){
         winOrOver.innerHTML="OOps Match is Draw!! "
-        // resetGame()
+        resetGame()
         alertBox.style.display="flex"
         alertText.innerHTML="OOps Match is Draw!!"
         count=0;
-        alertImage.style.display="none";
-        alertImage2.style.display="block";
+        // alertImage.style.display="none";
+        // alertImage2.style.display="block";
     }
 } 
