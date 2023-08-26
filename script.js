@@ -2,6 +2,7 @@ let playbtn  = document.getElementById("play-btn")
 let playgamescreen = document.getElementById("play-game")
 playbtn.addEventListener("click" ,()=>{
     playgamescreen.style.top="-100vh"
+    gameMusic.play();
 })
 
 let btnbox = document.querySelectorAll(".btn-box") 
@@ -15,6 +16,8 @@ let alertText = document.querySelector("#alertBox #win")
 let boxText = document.getElementsByClassName("btn-box")
 let alertImage = document.getElementById("image")
 let alertImage2 = document.getElementById("image2")
+let turnMusic = new Audio("tone.mp3")
+let gameMusic = new Audio("game.mp3")
 alertText.innerHTML= winOrOver.innerText;    
 
 let count=0;
@@ -24,11 +27,14 @@ const changeTurn = ()=>{
 }
 
 btnbox.forEach((e)=>{
+        
+
          e.addEventListener("click",()=>{
          e.innerText=turn;        
          e.classList.add(turn)
          e.classList.add("disable")
          turn = changeTurn()
+         turnMusic.play();
          winOrOver.innerHTML=`Turn of ${turn}`
          checkWin()
          count+=1;      
@@ -58,6 +64,8 @@ const checkWin = () => {
         //   alertImage2.style.display="none"
           resetGame()
           alertBox.style.display="flex" 
+          gameMusic.pause();
+
         }
     })
 }
@@ -69,7 +77,7 @@ function resetGame(){
          e.classList.remove("disable")         
          count=0;
          winOrOver.innerHTML=""
-            
+         gameMusic.play();       
      })
 }  
 
@@ -101,5 +109,6 @@ function drawMacth(){
         count=0;
         // alertImage.style.display="none";
         // alertImage2.style.display="block";
+        gameMusic.pause();
     }
 } 
