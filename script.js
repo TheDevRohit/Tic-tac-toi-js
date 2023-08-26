@@ -1,7 +1,7 @@
 let playbtn  = document.getElementById("play-btn")
 let playgamescreen = document.getElementById("play-game")
 playbtn.addEventListener("click" ,()=>{
-    playgamescreen.style.top="-100%"
+    playgamescreen.style.top="-100vh"
 })
 
 let btnbox = document.querySelectorAll(".btn-box") 
@@ -65,11 +65,12 @@ const checkWin = () => {
 function resetGame(){
     let Text = document.querySelectorAll(".btn-box")
     Text.forEach((e)=>{
-         e.innerText=" ";
+         e.innerText="";
          e.classList.remove("disable")         
          count=0;
          winOrOver.innerHTML=""
-    })
+            
+     })
 }  
 
 // Reset Button 
@@ -98,7 +99,7 @@ function drawMacth(){
         alertBox.style.display="flex"
         alertText.innerHTML="OOps Match is Draw!!"
         count=0;
-       alertImage.style.display="none";
-       alertImage2.style.display="block";
+        alertImage.style.display="none";
+        alertImage2.style.display="block";
     }
 } 
